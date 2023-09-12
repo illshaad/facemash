@@ -2,6 +2,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { addVote, getRandomCats } from "../services/cats-service";
 
 import { Link } from "react-router-dom";
+import { getCats } from "../services/list-service";
+import { CatType } from "../types/cat";
 
 export default function Cats() {
   const queryClient = useQueryClient();
@@ -9,6 +11,12 @@ export default function Cats() {
   const { data, isLoading } = useQuery({
     queryKey: ["getCats"],
     queryFn: getRandomCats,
+    refetchOnWindowFocus: false,
+  });
+
+  const { data: dataCats } = useQuery({
+    queryKey: ["getCast"],
+    queryFn: getCats,
     refetchOnWindowFocus: false,
   });
 
@@ -20,6 +28,9 @@ export default function Cats() {
       queryClient.invalidateQueries({ queryKey: ["getCats"] });
     },
   });
+
+  const voteSuperior = (dataCats: CatType[]) =>
+    dataCats?.some((item) => item.vote > 0);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -74,7 +85,11 @@ export default function Cats() {
         <div className="absolute bottom-10 transform -translate-x-1/2  left-2/4">
           <Link
             to={"/list"}
-            className="inline-block bg-gradient-to-r from-pink-200 via-pink-400 to-blue-500  rounded bg-indigo-600 px-2 py-3 text-xs font-bold text-white transition hover:scale-110 "
+            className={`${
+              !voteSuperior(dataCats)
+                ? "hidden"
+                : "inline-block bg-gradient-to-r from-pink-200 via-pink-400 to-blue-500 rounded bg-indigo-600 px-2 py-3 text-xs font-bold text-white transition hover:scale-110"
+            }`}
           >
             Voir les plus beaux chats
           </Link>
