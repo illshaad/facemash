@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const options = {
-  connectTimeoutMS: 5000,
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
