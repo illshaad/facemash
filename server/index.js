@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const db = require("./config/bdd");
 
 const express = require("express");
