@@ -18,7 +18,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap justify-center">
             <Link
               to={"/cats"}
-              className="block w-full rounded border-2 border-pink-400 px-12 py-3 text-sm font-medium text-grey-900 shadow  sm:w-auto"
+              className=" block w-full rounded border-2 border-pink-400 px-12 py-3 text-sm font-medium text-grey-900 shadow  sm:w-auto"
             >
               Voir les chats
             </Link>
