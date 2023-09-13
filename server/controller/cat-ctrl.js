@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Cat = require("../models/cat.js");
 const Axios = require("axios");
 
-const url = "https://latelier.co/data/cats.json";
+const url = process.env.API_CAT;
 const initializeApp = async (req, res) => {
   try {
     const collections = await mongoose.connection.db

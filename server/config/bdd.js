@@ -6,10 +6,7 @@ const options = {
 };
 
 mongoose
-  .connect(
-    "mongodb+srv://illshaad:facemash@cluster0.isldhcs.mongodb.net/",
-    options
-  )
+  .connect(process.env.BBD, options)
   .then(() => {
     console.info("connexion ok");
   })
