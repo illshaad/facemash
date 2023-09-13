@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Cat = require("../models/cat");
+const Cat = require("../models/cat.js");
 const Axios = require("axios");
 
 const url = process.env.API_CAT;
@@ -36,8 +36,11 @@ const initializeApp = async (req, res) => {
 };
 
 const getCats = async (req, res) => {
+  const { sort } = req.query;
+
   try {
-    const cats = await Cat.find();
+    let sorting = sort === "asc" ? { vote: 1 } : { vote: -1 };
+    const cats = await Cat.find().sort(sorting);
     res.status(200).json(cats);
   } catch (error) {
     console.error(error);
