@@ -1,6 +1,12 @@
-export default function Filter({ setOrder }) {
+import { Link } from "react-router-dom";
+
+export default function Options({
+  setOrder,
+}: {
+  setOrder: React.Dispatch<React.SetStateAction<"asc" | "desc">>;
+}) {
   return (
-    <span className="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm">
+    <div className="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm">
       <button
         onClick={() => setOrder("desc")}
         className="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-100 focus:relative"
@@ -14,6 +20,12 @@ export default function Filter({ setOrder }) {
       >
         Note le moins élevé
       </button>
-    </span>
+      <Link
+        to={"/cats"}
+        className="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:relative"
+      >
+        Retour
+      </Link>
+    </div>
   );
 }

@@ -1,8 +1,11 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { getCats } from "../services/list-service";
+
 import { CatDisplay } from "../components/catsDisplay";
-import Filter from "../components/filter";
+import Options from "../components/options";
+
 import { nextCats, prevCats, slide } from "../utils/cat-utils";
 
 export default function List() {
@@ -25,18 +28,18 @@ export default function List() {
         <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
           Les plus beaux chats
         </h2>
-        <Filter setOrder={setOrder} />
+        <Options setOrder={setOrder} />
       </header>
 
       <div className="flex items-center gap-10">
         <div
-          className="cursor-pointer border border-pink-100 border-4 rounded-full shaddow py-6 px-8"
+          className="cursor-pointer border border-pink-100 border-4 rounded-full shaddow py-6 px-8 transition hover:scale-110"
           onClick={() => prevCats(currentIndex, setCurrentIndex, catsList)}
         >
           ←
         </div>
 
-        {displayAllCats ? (
+        {displayAllCats && data ? (
           <CatDisplay
             cats={data}
             buttonLabel="Voir moins de chats"
@@ -51,7 +54,7 @@ export default function List() {
         )}
 
         <div
-          className="cursor-pointer border border-blue-100 border-4 rounded-full shaddow py-6 px-8"
+          className="cursor-pointer border border-blue-100 border-4 rounded-full shaddow py-6 px-8 transition hover:scale-110"
           onClick={() => nextCats(currentIndex, setCurrentIndex, catsList)}
         >
           →

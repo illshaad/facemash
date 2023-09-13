@@ -38,7 +38,7 @@ export default function Cats() {
             <span className="hidden sm:block sm:h-px sm:w-8 sm:bg-pink-400 "></span>
             <button
               onClick={() => mutation.mutate(data[0]?._id)}
-              className="mt-0.5 opacity-50 sm:mt-0"
+              className=" border-2 border-pink-400  rounded mt-0.5 px-4 opacity-50 sm:mt-0 transition hover:scale-110"
             >
               Votes
             </button>
@@ -62,7 +62,7 @@ export default function Cats() {
             <span className="hidden sm:block sm:h-px sm:w-8 sm:bg-blue-400"></span>
             <button
               onClick={() => mutation.mutate(data[1]?._id)}
-              className="mt-0.5 opacity-50 sm:mt-0"
+              className=" border-2 border-blue-400  rounded mt-0.5 px-4 opacity-50 sm:mt-0 transition hover:scale-110"
             >
               Votes
             </button>
