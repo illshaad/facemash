@@ -6,7 +6,7 @@ export default function Cat({ cat }: { cat: CatType }) {
       <img
         src={cat.url}
         alt="cat picture"
-        className="rounded-bl-3xl rounded-tr-3xl object-cover transition duration-500 group-hover:scale-105 sm:h-[350px]"
+        className="sepia rounded-bl-3xl rounded-tr-3xl object-cover transition duration-500 group-hover:scale-105 sm:h-[350px]"
       />
 
       <div className="relative pt-3 bg-white">

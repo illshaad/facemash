@@ -8,17 +8,20 @@ import Options from "../components/options";
 
 import { nextCats, prevCats, slide } from "../utils/cat-utils";
 
+import LoadingSvg from "../components/loadingSvg";
+
 export default function List() {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
   const [displayAllCats, setDisplayAllCats] = React.useState<boolean>(false);
   const [order, setOrder] = React.useState<"asc" | "desc">("desc");
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["getCats", order],
     queryFn: () => getCats(order),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <LoadingSvg />;
+  if (isError) return <div>Error</div>;
 
   const catsList = slide(data);
 

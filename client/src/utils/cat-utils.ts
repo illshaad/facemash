@@ -3,7 +3,7 @@ import { CatType } from "../types/cat";
 export const nextCats: (
   currentIndex: number,
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>,
-  catsList: CatType[]
+  catsList: CatType[] | CatType[][]
 ) => void = (currentIndex, setCurrentIndex, catsList) => {
   const newIndex = currentIndex + 1;
   if (catsList && newIndex >= catsList.length) {
@@ -16,7 +16,7 @@ export const nextCats: (
 export const prevCats: (
   currentIndex: number,
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>,
-  catsList: CatType[]
+  catsList: CatType[] | CatType[][]
 ) => void = (currentIndex, setCurrentIndex, catsList) => {
   const newIndex = currentIndex - 1;
   if (catsList && newIndex < 0) {
