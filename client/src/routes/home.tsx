@@ -12,7 +12,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-4 sm:text-xl/relaxed">
-            Bienvenu dans le monde des plus beaux chats du monde
+            Bienvenue dans le monde des plus beaux chats du monde
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center">
