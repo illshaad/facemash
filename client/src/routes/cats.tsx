@@ -47,10 +47,14 @@ export default function Cats() {
               Votes
             </button>
           </div>
-          <div className="text-pink-400 font-medium italic mt-4 sm:flex sm:items-center sm:justify-center sm:gap-4 ">
-            {dataVerify[0]?.vote
-              ? `Note - ${dataVerify[0]?.vote} `
-              : "Pas encore de vote"}
+          <div className="text-pink-400 font-medium italic mt-4 sm:flex sm:items-center sm:justify-center sm:gap-4">
+            {dataVerify[0]?.vote ? (
+              <span>
+                Note - {dataVerify[0]?.vote} <span>&#9733;</span>
+              </span>
+            ) : (
+              "Pas encore de vote"
+            )}
           </div>
         </div>
       </div>
@@ -73,10 +77,14 @@ export default function Cats() {
               Votes
             </button>
           </div>
-          <div className="text-blue-400 font-medium italic mt-4 sm:flex sm:items-center sm:justify-center sm:gap-4 ">
-            {dataVerify[1]?.vote
-              ? `Note - ${dataVerify[1]?.vote}`
-              : "Pas encore de vote"}
+          <div className="text-pink-400 font-medium italic mt-4 sm:flex sm:items-center sm:justify-center sm:gap-4">
+            {dataVerify[1]?.vote ? (
+              <span>
+                Note - {dataVerify[1]?.vote} <span>&#9733;</span>
+              </span>
+            ) : (
+              "Pas encore de vote"
+            )}
           </div>
         </div>
         <div className="absolute bottom-10 transform -translate-x-1/2  left-2/4">

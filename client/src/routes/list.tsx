@@ -31,16 +31,18 @@ export default function List() {
         <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
           Les plus beaux chats
         </h2>
-        <Options setOrder={setOrder} />
+        <Options setOrder={setOrder} order={order} />
       </header>
 
       <div className="flex items-center gap-10">
-        <div
-          className="cursor-pointer border border-pink-100 border-4 rounded-full shaddow py-6 px-8 transition hover:scale-110"
-          onClick={() => prevCats(currentIndex, setCurrentIndex, catsList)}
-        >
-          ←
-        </div>
+        {!displayAllCats && (
+          <div
+            className="cursor-pointer border border-pink-100 border-4 rounded-full shaddow py-6 px-8 transition hover:scale-110"
+            onClick={() => prevCats(currentIndex, setCurrentIndex, catsList)}
+          >
+            ←
+          </div>
+        )}
 
         {displayAllCats && data ? (
           <CatDisplay
@@ -56,12 +58,14 @@ export default function List() {
           />
         )}
 
-        <div
-          className="cursor-pointer border border-blue-100 border-4 rounded-full shaddow py-6 px-8 transition hover:scale-110"
-          onClick={() => nextCats(currentIndex, setCurrentIndex, catsList)}
-        >
-          →
-        </div>
+        {!displayAllCats && (
+          <div
+            className="cursor-pointer border border-blue-100 border-4 rounded-full shaddow py-6 px-8 transition hover:scale-110"
+            onClick={() => nextCats(currentIndex, setCurrentIndex, catsList)}
+          >
+            →
+          </div>
+        )}
       </div>
     </div>
   );
