@@ -29,7 +29,6 @@ const initializeApp = async (req, res) => {
 
     res.status(200).json({ message: "The cats have been inserted correctly" });
   } catch (error) {
-    console.error("Error retrieving data from URL : ", error);
     res.status(500).json({ message: "Error retrieving data" });
   }
 };
@@ -42,7 +41,6 @@ const getCats = async (req, res) => {
     const cats = await Cat.find().sort(sorting);
     res.status(200).json(cats);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Error server" });
   }
 };
@@ -52,7 +50,6 @@ const randomeCat = async (req, res) => {
     const cats = await Cat.aggregate([{ $sample: { size: 2 } }]);
     res.status(200).json(cats);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Error server" });
   }
 };
@@ -63,7 +60,6 @@ const addVote = async (req, res) => {
     await Cat.findByIdAndUpdate(catId, { $inc: { vote: 1 } });
     res.status(200).json({ message: "Vote success" });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Error server" });
   }
 };
